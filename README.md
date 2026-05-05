@@ -25,14 +25,14 @@ This is a Power Bi Dashboard showes the continent wise sales analysis of garment
 This Power BI report delivers a comprehensive, continent-wise view of sales performance from 2019 to 2021. The underlying data originates from an ERP system export and encompasses dealer-level transactions across multiple countries, regions, product categories, and customer segments.
 Business Questions Answered:
 
-What are the Total Order Quantity, Total Revenue, Total Profit, and Profit Margin?
-Which continent generates the highest Revenue and Profit?
-What are the year-over-year Revenue and Profit differences for the period 2019–2021?
-How does customer diversity impact Total Revenue?
-Which are the Top 5 Products by Revenue?
-How does Product Style influence country-wise Revenue?
-What is the Total Revenue breakdown by country?
-What does the Monthly Revenue and Profit trend look like over the report period?
+-What are the Total Order Quantity, Total Revenue, Total Profit, and Profit Margin?
+-Which continent generates the highest Revenue and Profit?
+-What are the year-over-year Revenue and Profit differences for the period 2019–2021?
+-How does customer diversity impact Total Revenue?
+-Which are the Top 5 Products by Revenue?
+-How does Product Style influence country-wise Revenue?
+-What is the Total Revenue breakdown by country?
+-What does the Monthly Revenue and Profit trend look like over the report period?
 
 
 ### Tools & Technologies
