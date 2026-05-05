@@ -41,23 +41,33 @@ Business Questions Answered:
 * Power BI
 
 ### Dataset Overview
-#### Sales_19_21(1) Dataset Columns:
+- #### "Sales_19_21(1)" Dataset Columns:
 OrderDate, StockDate, OrderNumber, ProductKey,CustomerKey, teritorryKey, OrderLineItem, OrderQuantity 
 #### Sample Preview
 <img width="1231" height="237" alt="image" src="https://github.com/user-attachments/assets/72aa7783-800a-405f-bcd0-4683fe900ef4" />
 
-#### Customer Dataset Columns:
+- #### "Customer" Dataset Columns:
 CustomerKey, Perfix, FirstName, LastName, BirthDate, MaritalStatus, Gender, EmailAddress, AnnualIncome, TotalChildren, EducationLevel, Occupation, HomeOwner 
 #### Sample Preview 
 <img width="1772" height="232" alt="image" src="https://github.com/user-attachments/assets/bef4bd2b-12f4-4a97-99ef-ba7ee235332a" />
 
+- #### "Product" Dataset Columns:
+ProductKey, ProductSubcatagoryKey, ProductSKU, ProductName, ModelName, ProductDescription, ProductColor, ProductSize, ProductStyle, ProductCost, ProductPrice  
+#### Sample Preview 
+<img width="1812" height="317" alt="image" src="https://github.com/user-attachments/assets/17ae7f17-4819-462b-beeb-7b656bbc93ee" />
+
+- #### "Territories" Dataset Columns:
+SalesTerritoryKey, Region, Country, Continent 
+#### Sample Preview
+<img width="507" height="287" alt="image" src="https://github.com/user-attachments/assets/6105ada5-f116-4269-903f-85b9de596f7f" />
 
 ### Data Cleaning Process (Power Query)
     - Promoted Headers
     - Changed data Type 
-	- Removed column that are not required for our analysis
+	- Replaced value
 	
-<img width="1915" height="997" alt="image" src="https://github.com/user-attachments/assets/9d6223a3-4f23-4c5a-a0ac-381b5e098546" />
+<img width="1891" height="533" alt="image" src="https://github.com/user-attachments/assets/371ba528-bcb3-419e-b018-02ca3ea93031" />
+
 
 	
 ### Create "Calender Table 
