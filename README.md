@@ -22,13 +22,17 @@ This is a Power Bi Dashboard showes the continent wise sales analysis of garment
 - [Acknowledgements](#acknowledgements)
 
 ### Project Overview
-This Power BI report provides a comprehensive view of retail sales performance for December 2024. The data originates from an ERP system export and covers dealer-level transactions across multiple territories, routes, outlets, product categories, and brands.
-Business questions answered:
+This Power BI report delivers a comprehensive, continent-wise view of sales performance from 2019 to 2021. The underlying data originates from an ERP system export and encompasses dealer-level transactions across multiple countries, regions, product categories, and customer segments.
+Business Questions Answered:
 
-- Which areas and territories drive the most sales value?
-- How do individual brands contribute to total revenue?
-- What is the day-wise sales rhythm, and how does MILK category trend separately?
-- What does January 2025 demand look like based on historical patterns?
+What are the Total Order Quantity, Total Revenue, Total Profit, and Profit Margin?
+Which continent generates the highest Revenue and Profit?
+What are the year-over-year Revenue and Profit differences for the period 2019–2021?
+How does customer diversity impact Total Revenue?
+Which are the Top 5 Products by Revenue?
+How does Product Style influence country-wise Revenue?
+What is the Total Revenue breakdown by country?
+What does the Monthly Revenue and Profit trend look like over the report period?
 
 
 ### Tools & Technologies
