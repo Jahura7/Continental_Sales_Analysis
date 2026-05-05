@@ -41,11 +41,16 @@ Business Questions Answered:
 * Power BI
 
 ### Dataset Overview
-Columns:
-sales_date, sales_type_1_counter_sales, region_name, area_name, teritorry_name, dealer_id, db_erp_id, sr_name, route_id, route, outlet_id, outlet_name, category_name, brand_name, disc_tp, sales_qty_pcs, sales_in_ton, sales_dp
+#### Sales_19_21(1) Dataset Columns:
+OrderDate, StockDate, OrderNumber, ProductKey,CustomerKey, teritorryKey, OrderLineItem, OrderQuantity 
+#### Sample Preview
+<img width="1231" height="237" alt="image" src="https://github.com/user-attachments/assets/72aa7783-800a-405f-bcd0-4683fe900ef4" />
 
-### Sample Preview
-<img width="1832" height="685" alt="image" src="https://github.com/user-attachments/assets/20035770-fd0c-4f70-9008-af69166a7930" />
+#### Customer Dataset Columns:
+CustomerKey, Perfix, FirstName, LastName, BirthDate, MaritalStatus, Gender, EmailAddress, AnnualIncome, TotalChildren, EducationLevel, Occupation, HomeOwner 
+#### Sample Preview 
+<img width="1772" height="232" alt="image" src="https://github.com/user-attachments/assets/bef4bd2b-12f4-4a97-99ef-ba7ee235332a" />
+
 
 ### Data Cleaning Process (Power Query)
     - Promoted Headers
