@@ -1,7 +1,6 @@
 # Continental_Sales_Analysis
 This is a Power Bi Dashboard showes the continent wise sales analysis of garment product
-# Sales-Analysis-Report-December-2024| Sales, Trend, Forecasting and Insights
-Excel + Power Query + Power Bi Project | Retail Sales Data | From Raw Data to Business Insights
+| Sales Data | From Raw Data to Business Insights|
 
 ## Table of Contents
 - [Project Overview](#project-overview)
