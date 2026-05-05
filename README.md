@@ -67,13 +67,11 @@ SalesTerritoryKey, Region, Country, Continent
 	- Replaced value
 	
 <img width="1891" height="533" alt="image" src="https://github.com/user-attachments/assets/371ba528-bcb3-419e-b018-02ca3ea93031" />
-
-
 	
 ### Create "Calender Table 
 1. Calender
  ``` dax
-Calender = CALENDAR(MIN(Retail_Sales_Dataset[sales_date]), MAX(Retail_Sales_Dataset[sales_dp]))
+Calender = CALENDAR(MIN('Sales_19-21 (1)'[OrderDate]), MAX('Sales_19-21 (1)'[OrderDate]))
 ```
 2. "Year" Column
  ``` dax
@@ -87,7 +85,8 @@ Month = FORMAT(Calender[Date],"MMM")
  ``` dax
 Day = FORMAT(Calender[Date],"DDD")
 ```
-<img width="1917" height="975" alt="image" src="https://github.com/user-attachments/assets/f7452da9-3055-42b7-b931-fde4c1f52f66" />
+<img width="896" height="382" alt="image" src="https://github.com/user-attachments/assets/19403333-89d7-46bd-9692-168afebcfee6" />
+
 
  ### Key Measures
  
