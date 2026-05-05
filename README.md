@@ -41,7 +41,7 @@ Business Questions Answered:
 * Power BI
 
 ### Dataset Overview
-- #### "Sales_19_21(1)" Dataset Columns:
+- #### "Sales_19-21(1)" Dataset Columns:
 OrderDate, StockDate, OrderNumber, ProductKey,CustomerKey, teritorryKey, OrderLineItem, OrderQuantity 
 #### Sample Preview
 <img width="1231" height="237" alt="image" src="https://github.com/user-attachments/assets/72aa7783-800a-405f-bcd0-4683fe900ef4" />
@@ -90,41 +90,42 @@ Day = FORMAT(Calender[Date],"DDD")
 
  ### Key Measures
  
- 1. Total Sales
+ 1. Unit Price
  ``` dax
-total_sales = SUM(Retail_Sales_Dataset[sales_dp])
+Unite Price = RELATED(Products[ProductPrice])
 ```
 
-2. Total Sales in Ton
+2. Revenue
  ```dax
-total_sales_in_ton = SUM(Retail_Sales_Dataset[sales_in_ton])
+Revenue = 'Sales_19-21 (1)'[OrderQuantity] * 'Sales_19-21 (1)'[Unite Price]
 ```
 
-3. Average Price per Ton
+3. Profit
 ```dax
-average_price_per_ton = DIVIDE(
-        SUM(Retail_Sales_Dataset[sales_dp]),
-        SUM(Retail_Sales_Dataset[sales_in_ton]),
-        0
-    )
-```    
+Profit = 'Sales_19-21 (1)'[Revenue] - RELATED(Products[ProductCost])
+```
+
+3. Profit Margin
+```dax
+Profit Margin = (('Sales_19-21 (1)'[Profit]/'Sales_19-21 (1)'[Revenue])* 100)
+```  
 
 ### Data Modeling
-<img width="1910" height="946" alt="image" src="https://github.com/user-attachments/assets/8350e911-da4b-4822-8bf4-466841f2b48b" />
+<img width="1512" height="738" alt="image" src="https://github.com/user-attachments/assets/6c82a484-d075-4d06-9923-cbab5569c60b" />
 
-The model has a classic star schema structure — a fact table and a date dimension linked by a single relationship.
+This is a Star Schema data model — the most common and recommended structure in Power BI. The Sales_19-21(1) table sits at the center as the fact table, surrounded by four dimension tables: Customers, Products, Territories, and Calendar.
 
--Retail_Sales_Dataset (Fact table — the * side)
--Calender (Dimension table — the 1 side)
+Relationships
+All relationships are one-to-many (1 to *), meaning one dimension row can relate to many fact rows — standard for star schemas:
 
-The relationship: Many-to-one (* → 1)
+- Customers[CustomerKey] → Sales_19-21(1)[CustomerKey]
+- Products[ProductKey] → Sales_19-21(1)[ProductKey]
+- Territories[SalesTerritoryKey] → Sales_19-21(1)[SalesTerritoryKey]
+- Calendar[Date] → Sales_19-21(1)[OrderDate]
 
-Retail_Sales_Dataset[sales_date] → Calender[Date]
-
-This means many transaction rows can share the same date, but each date in the calendar table is unique. This is the standard way to unlock time intelligence in Power BI — once this link exists, all visuals can be filtered and grouped by Year, Month, or Day from the Calender table, and the day-wise trend charts with the January 2025 forecast become possible.
-
-
-### Power BI Dashboard
+The arrow direction on the connector lines indicates the cross-filter direction — filters flow from the dimension (the 1 side) into the fact table (the * side).
+ 
+### Power BI Dashboard Visua
 The Power BI dashboard inclues the fpllowing visuals:
 - Cards for Total Sales, Total Sales in Ton and Average Price per Ton
 - Clastered bar chart showing teritorry wise sales
@@ -134,70 +135,71 @@ The Power BI dashboard inclues the fpllowing visuals:
 - Day wise Sales Trends along with Forecasting of Jan'25 (Line Chart)
 - Interactive slicer of Area, Territory, Category and Brand
  
-<img width="1430" height="748" alt="image" src="https://github.com/user-attachments/assets/9c36667e-dd2f-4388-bcd8-5d9eb4093c01" />
+ <img width="1050" height="718" alt="image" src="https://github.com/user-attachments/assets/c74393c1-0e01-4438-80bd-a606e897f4c7" />
 
- 
+### Key Metrics (KPIs)
+| Metric | Value |
+|--------|-------|
+| 📦 Total Order Quantity | 84K |
+| 💰 Total Revenue | 24.91M |
+| 📈 Total Profit | 10.58M |
+| 🎯 Profit Margin | 4M |
+
+All KPI cards update dynamically based on active slicer selections.
+
  ### Key Insights
-### Area wise Total Sales
-------------------------------------
-<img width="1222" height="706" alt="image" src="https://github.com/user-attachments/assets/07458364-f48d-4980-a793-1356c913bf9b" />
+🌍 Revenue by Continent
 
-- Shantinagar dominates at 130M — 44% of the 298M total, and 53% more than the next area. It's carrying nearly half the business on its own.
-- Cumilla and Chittagong are near-equal at 85M and 83M respectively — a 2M gap that's essentially parity. Both sit at roughly 28% share each, forming a balanced second tier.
-- The top-to-bottom gap is steep — Shantinagar generates 57% more than Chittagong. If this were a healthier distribution, you'd expect the top area to lead by 15–25%, not 57%.
-- Concentration risk — with 3 areas covering all revenue, losing traction in Shantinagar alone would wipe out ~44% of sales. No area acts as a safety buffer at comparable scale.
- 
-### Brand wise Sales:
--------------------------- 
-<img width="1222" height="703" alt="image" src="https://github.com/user-attachments/assets/701bd310-5bbe-4d9a-b80e-65f779a2486f" />
+- North America leads all continents with $9.7M revenue and $4.2M profit.
+- Europe follows with $7.8M revenue and $3.3M profit.
+- Pacific contributes $7.4M revenue and $3.1M profit — competitive with Europe.
+- Profit margins appear consistent (~43–44%) across all three continents.
 
-#### Dominant Brand:
-DIPLOMA is overwhelmingly the leader with 181.13M sales, accounting for 60.76% of the total.
-	This indicates a highly concentrated market where one brand drives the majority of revenue.
-#### Secondary Players:
-HAPPY COW (31.05M, 10.42%) and POPPERS (13.6M, 4.56%) are the next strongest contributors.
-Together with DIPLOMA, the top three brands make up ~76% of total sales.
-#### Mid-tier Brands:
-Brands like BELLEAME-HD, DETOS, BELLEAME-SD, DOODLES INSTANT, FARMLAND each contribute 2–3%.
-Collectively, these mid-tier brands form about 14% of the market.
-#### Small Brands:
-The remaining brands (e.g., RC BUTTER OIL, DOODLES STICK, FARMLAND ATTA, etc.) each contribute <2%.
-Their combined share is relatively small, but they diversify the portfolio.
+📅 Revenue vs Profit by Year
 
- ### Brand wise Milk Catagory Product Sales:
- --------------------------------------------
- <img width="1220" height="702" alt="image" src="https://github.com/user-attachments/assets/dc0daf6a-136c-4d93-80fc-98d616b5e9ad" />
+- Revenue grew from $6.4M (2019) → $9.3M (2020) → $9.2M (2021) — a 44% rise from 2019 to 2020.
+- Profit followed the same trend: $2.6M → $4.0M → $4.0M.
+- Growth plateaued in 2021 relative to 2020, suggesting market saturation or seasonal factors.
 
-Four quick takeaways from this chart:
+🏆 Top 5 Products by Revenue
 
-- DIPLOMA is essentially the MILK category. At 82.4% (181M), it's not a market leader — it's the market. No other brand comes close, which raises a real single-point-of-failure risk.
-- HAPPY COW is a distant but meaningful second. At 14.1% (31M), it's the only brand with enough presence to cushion any DIPLOMA shortfall. Growing it strategically would reduce portfolio concentration.
-- FARMLAND at 3.2% is a structural gap — it has name recognition (it appears in the legend) but nearly no sales traction. It's either underranged across outlets or has weak demand pull in this region.
-- RED COW, CALCI-PRO, and SHAPE-UP are effectively absent — three SKUs together contribute less than 0.3M, which suggests they're listed but not actively pushed by SRs or pulled by outlets. Worth reviewing whether these remain worth distributing or should be rationalised.
- 
- ### Milk Catagory Product Sales Trend:
- -------------------------------------- 
-  <img width="1224" height="702" alt="image" src="https://github.com/user-attachments/assets/c5465caf-ba88-4852-b96f-549637893f4c" />
-  
- - While the overall trend is stable, the extreme lows distort the average. Removing anomalies, the true daily average is ~7.5M.
- - The Day 29 (8.9M) and Day 31 (13.1M) peaks suggest strong month-end buying behavior.
- - The near-zero days are red flags. If these are stockouts, they represent lost revenue opportunities of ~7–8M per day.
- 
+All top 5 products are variants of the Mountain-200 series:
 
-### Sales of December, 2024 and forecasting of january, 2025:
----------------------------------------------------------------
-<img width="1222" height="705" alt="image" src="https://github.com/user-attachments/assets/2aca2a5c-c252-4c5a-926c-74f145812adb" />
+| Rank | Product | Revenue |
+|------|----------|--------|
+| 1 | Mountain-200 Black, 46 | $1.24M |
+| 2 | Mountain-200 Black, 42 | $1.23M |
+| 3 | Mountain-200 Silver, 38 | $1.21M |
+| 4 |Mountain-200 Silver, 46| $1.18M |
+| 5 |Mountain-200 Black, 38 |$1.17M |
 
-#### Recent Performance (Dec 2024):
-- Sales fluctuated between 7.4M–11.6M, with some days showing 0M (likely stockouts or reporting gaps).
-- A notable high point was Dec 22 (11.47M), showing strong demand before the holiday period.
-#### Forecast for Jan 2025:
-- The forecast line projects growth, with a peak of 16.8M expected.
-- This is significantly higher than December’s average, suggesting positive momentum heading into the new year.
-#### Trend Line Analysis:
-- The linear trend (dashed black line) shows a steady upward trajectory. 
-- The average benchmark (blue dashed line) sits around 8–9M, meaning forecasted highs are nearly double the baseline.
+The Mountain-200 line dominates revenue — a strong indicator for inventory prioritization and marketing focus.
 
+🗺️ Revenue by Country
+
+- United States is the top market: $7.94M
+- Australia is a strong second: $7.42M
+- United Kingdom: $2.52M | France: $2.36M | Germany: $2.1M | Canada: $1.77M
+
+The US and Australia together account for ~62% of total revenue.
+
+🚻 Diversity Impact on Sales
+
+- Female customers generate $12.5M in revenue vs Male customers at $12.2M — nearly equal split.
+- A minor NA segment ($0.2M) indicates some records lack gender classification.
+- Gender parity in purchasing behavior suggests marketing strategies need not be gender-skewed.
+
+📦 Revenue by Country and Product Style
+
+- United States shows the highest volume across all product styles (O, U, W), with style O leading at $6.5M.
+- Australia mirrors US patterns with significant style O purchases ($6.3M).
+- Other markets (UK, Germany, France, Canada) show more distributed style preferences with lower individual volumes.
+
+📆 Monthly Revenue and Profit Trend
+
+- Revenue shows a clear upward trend: starting at $1.3M (Sep) and climbing to $3.0M (Jun).
+- Profit holds steady between $0.5M–$1.3M monthly throughout the period.
+- The Sep–Nov period shows the slowest revenue growth, while Feb–Jun accelerates significantly — suggesting a seasonal peak in the first half of the calendar year.
   
  ## Dataset
 
