@@ -17,9 +17,11 @@ This is a Power Bi Dashboard showes the continent wise sales analysis of garment
 - [Acknowledgements](#acknowledgements)
 
 ### Project Overview
-This Power BI report delivers a comprehensive, continent-wise view of sales performance from 2019 to 2021. The underlying data originates from an ERP system export and encompasses dealer-level transactions across multiple countries, regions, product categories, and customer segments.
-Business Questions Answered:
+The Continental Sales Analysis dashboard provides a unified, interactive view of global sales performance across three continents and six countries from 2019 to 2021. The project follows a complete BI pipeline:
 
+Raw CSV Data → Power Query Cleaning → Star Schema Modeling → DAX Measures → Interactive Dashboard
+
+Business Questions Answered:
 - What are the Total Order Quantity, Total Revenue, Total Profit, and Profit Margin?
 - Which continent generates the highest Revenue and Profit?
 - What are the year-over-year Revenue and Profit differences for the period 2019–2021?
@@ -34,6 +36,7 @@ Business Questions Answered:
 * Excel
 * Power Query
 * Power BI
+* Git
 
 ### Dataset Overview
 - #### "Sales_19-21(1)" Dataset Columns:
@@ -100,9 +103,9 @@ Revenue = 'Sales_19-21 (1)'[OrderQuantity] * 'Sales_19-21 (1)'[Unite Price]
 Profit = 'Sales_19-21 (1)'[Revenue] - RELATED(Products[ProductCost])
 ```
 
-3. Profit Margin
+3.  % Profit Margin
 ```dax
-Profit Margin = (('Sales_19-21 (1)'[Profit]/'Sales_19-21 (1)'[Revenue])* 100)
+% Profit Margin = (SUM('Sales_19-21 (1)'[Profit])/(SUM('Sales_19-21 (1)'[Revenue]))* 100)
 ```  
 
 ### Data Modeling
