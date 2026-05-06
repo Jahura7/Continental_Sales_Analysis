@@ -1,6 +1,6 @@
 # Continental_Sales_Analysis
 An end-to-end sales analytics solution built in Power BI — covering data ingestion, cleaning, modeling, DAX measures, and an interactive dashboard spanning continental revenue, profit trends, customer diversity, and product performance from 2019 to 2021.
-| Sales Data | From Raw Data to Business Insights|
+| Sales Data | From Raw Data to Business Insights |
 
 ## Table of Contents
 - [Project Overview](#project-overview)
