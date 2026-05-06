@@ -13,11 +13,7 @@ This is a Power Bi Dashboard showes the continent wise sales analysis of garment
 - [Data Modeling](#data-modeling)
 - [Power BI Dashboard](#power-bi-dashboard)
 - [Key Insights](#key-insights)
-  - [Area-wise Total Sales](#area-wise-total-sales)
-  - [Brand-wise Sales](#brand-wise-sales)
-  - [Brand-wise Milk Category Sales](#brand-wise-milk-catagory-product-sales)
-  - [Milk Category Sales Trend](#milk-catagory-product-sales-trend)
-  - [December 2024 Sales & January 2025 Forecast](#sales-of-december-2024-and-forecasting-of-january-2025)
+- [How to Use](#how-to-use)
 - [Dataset](#dataset)
 - [Acknowledgements](#acknowledgements)
 
@@ -125,7 +121,7 @@ All relationships are one-to-many (1 to *), meaning one dimension row can relate
 
 The arrow direction on the connector lines indicates the cross-filter direction — filters flow from the dimension (the 1 side) into the fact table (the * side).
  
-### Power BI Dashboard Visua
+### Power BI Dashboard 
 The Power BI dashboard inclues the fpllowing visuals:
 - Cards for Total Sales, Total Sales in Ton and Average Price per Ton
 - Clastered bar chart showing teritorry wise sales
