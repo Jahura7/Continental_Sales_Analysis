@@ -13,7 +13,6 @@ This is a Power Bi Dashboard showes the continent wise sales analysis of garment
 - [Data Modeling](#data-modeling)
 - [Power BI Dashboard](#power-bi-dashboard)
 - [Key Insights](#key-insights)
-- [How to Use](#how-to-use)
 - [Dataset](#dataset)
 - [Acknowledgements](#acknowledgements)
 
@@ -121,43 +120,59 @@ All relationships are one-to-many (1 to *), meaning one dimension row can relate
 
 The arrow direction on the connector lines indicates the cross-filter direction — filters flow from the dimension (the 1 side) into the fact table (the * side).
  
-### Power BI Dashboard 
-The Power BI dashboard inclues the fpllowing visuals:
-- Cards for Total Sales, Total Sales in Ton and Average Price per Ton
-- Clastered bar chart showing teritorry wise sales
-- Clastered bar chart showing brand wise sales
-- Donut chart showing brand wise milk category sales
-- Day wise Milk catagory sales Trend in Line chart
-- Day wise Sales Trends along with Forecasting of Jan'25 (Line Chart)
-- Interactive slicer of Area, Territory, Category and Brand
+## Power BI Dashboard 
+### The Power BI dashboard inclues the following visuals:
  
  <img width="1050" height="718" alt="image" src="https://github.com/user-attachments/assets/c74393c1-0e01-4438-80bd-a606e897f4c7" />
+
+ 
+ Visuals Included
+| Visual | Chart Type | Purpose|
+|--------|----------|----------|
+| KPI Cards |Card | Total Orders, Revenue, Profit, Profit Margin |
+| Revenue & Profit by Continent | Clustered Bar Chart | Continent-level performance comparison |
+| Revenue vs Profit by Year |Clustered Column Chart | Year-over-year trend (2019–2021) |
+| Diversity Impact on Sales |Clustered Column Chart | Gender-based revenue segmentation |
+| Top 5 Products by Revenue |Clustered Bar Chart |Best-performing product ranking |
+| Revenue by Country & Product Style |Clustered Column Chart | Country × product style cross-analysis |
+| Revenue by Country | Treemap | Proportional geographic revenue view |
+| Monthly Revenue & Profit Trend | Area + Line |Time-series trend tracking |
 
 ### Key Metrics (KPIs)
 | Metric | Value |
 |--------|-------|
-| 📦 Total Order Quantity | 84K |
-| 💰 Total Revenue | 24.91M |
-| 📈 Total Profit | 10.58M |
-| 🎯 Profit Margin | 4M |
+| Total Order Quantity | 84K |
+| Total Revenue | 24.91M |
+| Total Profit | 10.58M |
+| % Profit Margin | 42.47 |
 
 All KPI cards update dynamically based on active slicer selections.
 
- ### Key Insights
-🌍 Revenue by Continent
+### Slicers / Filters
+| Slicer | Options |
+|--------|---------|
+| Continent | All / North America / Europe / Pacific | 
+| Country / Region | Cascades from Continent selection |
+| Year | 2019 / 2020 / 2021 | 
+| Month | January – December |
+| Quarter | Q1 / Q2 / Q3 / Q4 |
+
+
+##  Key Insights
+#### Revenue by Continent
 
 - North America leads all continents with $9.7M revenue and $4.2M profit.
 - Europe follows with $7.8M revenue and $3.3M profit.
 - Pacific contributes $7.4M revenue and $3.1M profit — competitive with Europe.
 - Profit margins appear consistent (~43–44%) across all three continents.
 
-📅 Revenue vs Profit by Year
+#### Revenue vs Profit by Year
 
 - Revenue grew from $6.4M (2019) → $9.3M (2020) → $9.2M (2021) — a 44% rise from 2019 to 2020.
 - Profit followed the same trend: $2.6M → $4.0M → $4.0M.
 - Growth plateaued in 2021 relative to 2020, suggesting market saturation or seasonal factors.
 
-🏆 Top 5 Products by Revenue
+#### Top 5 Products by Revenue
 
 All top 5 products are variants of the Mountain-200 series:
 
@@ -171,7 +186,7 @@ All top 5 products are variants of the Mountain-200 series:
 
 The Mountain-200 line dominates revenue — a strong indicator for inventory prioritization and marketing focus.
 
-🗺️ Revenue by Country
+#### Revenue by Country
 
 - United States is the top market: $7.94M
 - Australia is a strong second: $7.42M
@@ -179,19 +194,19 @@ The Mountain-200 line dominates revenue — a strong indicator for inventory pri
 
 The US and Australia together account for ~62% of total revenue.
 
-🚻 Diversity Impact on Sales
+ #### Diversity Impact on Sales
 
 - Female customers generate $12.5M in revenue vs Male customers at $12.2M — nearly equal split.
 - A minor NA segment ($0.2M) indicates some records lack gender classification.
 - Gender parity in purchasing behavior suggests marketing strategies need not be gender-skewed.
 
-📦 Revenue by Country and Product Style
+#### Revenue by Country and Product Style
 
 - United States shows the highest volume across all product styles (O, U, W), with style O leading at $6.5M.
 - Australia mirrors US patterns with significant style O purchases ($6.3M).
 - Other markets (UK, Germany, France, Canada) show more distributed style preferences with lower individual volumes.
 
-📆 Monthly Revenue and Profit Trend
+#### Monthly Revenue and Profit Trend
 
 - Revenue shows a clear upward trend: starting at $1.3M (Sep) and climbing to $3.0M (Jun).
 - Profit holds steady between $0.5M–$1.3M monthly throughout the period.
