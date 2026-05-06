@@ -121,12 +121,12 @@ All relationships are one-to-many (1 to *), meaning one dimension row can relate
 The arrow direction on the connector lines indicates the cross-filter direction — filters flow from the dimension (the 1 side) into the fact table (the * side).
  
 ## Power BI Dashboard 
-### The Power BI dashboard inclues the following visuals:
- 
- <img width="1050" height="718" alt="image" src="https://github.com/user-attachments/assets/c74393c1-0e01-4438-80bd-a606e897f4c7" />
+
+ <img width="1120" height="742" alt="image" src="https://github.com/user-attachments/assets/9a67c8c2-84c0-4ecb-876d-1a0633454feb" />
 
  
- Visuals Included
+### The Power BI dashboard inclues the following visuals:
+
 | Visual | Chart Type | Purpose|
 |--------|----------|----------|
 | KPI Cards |Card | Total Orders, Revenue, Profit, Profit Margin |
@@ -139,6 +139,7 @@ The arrow direction on the connector lines indicates the cross-filter direction 
 | Monthly Revenue & Profit Trend | Area + Line |Time-series trend tracking |
 
 ### Key Metrics (KPIs)
+
 | Metric | Value |
 |--------|-------|
 | Total Order Quantity | 84K |
@@ -149,6 +150,7 @@ The arrow direction on the connector lines indicates the cross-filter direction 
 All KPI cards update dynamically based on active slicer selections.
 
 ### Slicers / Filters
+
 | Slicer | Options |
 |--------|---------|
 | Continent | All / North America / Europe / Pacific | 
